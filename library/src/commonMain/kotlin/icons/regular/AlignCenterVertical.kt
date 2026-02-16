@@ -1,0 +1,91 @@
+package icons.regular
+
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.SolidColor
+import androidx.compose.ui.graphics.StrokeCap
+import androidx.compose.ui.graphics.StrokeJoin
+import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.graphics.vector.path
+import androidx.compose.ui.unit.dp
+import icons.PhIcons
+
+val PhIcons.Regular.AlignCenterVertical: ImageVector
+    get() {
+        if (_AlignCenterVertical != null) {
+            return _AlignCenterVertical!!
+        }
+        _AlignCenterVertical = ImageVector.Builder(
+            name = "Regular.AlignCenterVertical",
+            defaultWidth = 24.dp,
+            defaultHeight = 24.dp,
+            viewportWidth = 256f,
+            viewportHeight = 256f
+        ).apply {
+            path(
+                stroke = SolidColor(Color.Black),
+                strokeLineWidth = 16f,
+                strokeLineCap = StrokeCap.Round,
+                strokeLineJoin = StrokeJoin.Round
+            ) {
+                moveTo(224f, 128f)
+                lineTo(200f, 128f)
+            }
+            path(
+                stroke = SolidColor(Color.Black),
+                strokeLineWidth = 16f,
+                strokeLineCap = StrokeCap.Round,
+                strokeLineJoin = StrokeJoin.Round
+            ) {
+                moveTo(56f, 128f)
+                lineTo(32f, 128f)
+            }
+            path(
+                stroke = SolidColor(Color.Black),
+                strokeLineWidth = 16f,
+                strokeLineCap = StrokeCap.Round,
+                strokeLineJoin = StrokeJoin.Round
+            ) {
+                moveTo(144f, 128f)
+                lineTo(112f, 128f)
+            }
+            path(
+                stroke = SolidColor(Color.Black),
+                strokeLineWidth = 16f,
+                strokeLineCap = StrokeCap.Round,
+                strokeLineJoin = StrokeJoin.Round
+            ) {
+                moveTo(200f, 72f)
+                lineTo(200f, 184f)
+                arcTo(8f, 8f, 0f, isMoreThanHalf = false, isPositiveArc = true, 192f, 192f)
+                lineTo(152f, 192f)
+                arcTo(8f, 8f, 0f, isMoreThanHalf = false, isPositiveArc = true, 144f, 184f)
+                lineTo(144f, 72f)
+                arcTo(8f, 8f, 0f, isMoreThanHalf = false, isPositiveArc = true, 152f, 64f)
+                lineTo(192f, 64f)
+                arcTo(8f, 8f, 0f, isMoreThanHalf = false, isPositiveArc = true, 200f, 72f)
+                close()
+            }
+            path(
+                stroke = SolidColor(Color.Black),
+                strokeLineWidth = 16f,
+                strokeLineCap = StrokeCap.Round,
+                strokeLineJoin = StrokeJoin.Round
+            ) {
+                moveTo(64f, 40f)
+                lineTo(104f, 40f)
+                arcTo(8f, 8f, 0f, isMoreThanHalf = false, isPositiveArc = true, 112f, 48f)
+                lineTo(112f, 208f)
+                arcTo(8f, 8f, 0f, isMoreThanHalf = false, isPositiveArc = true, 104f, 216f)
+                lineTo(64f, 216f)
+                arcTo(8f, 8f, 0f, isMoreThanHalf = false, isPositiveArc = true, 56f, 208f)
+                lineTo(56f, 48f)
+                arcTo(8f, 8f, 0f, isMoreThanHalf = false, isPositiveArc = true, 64f, 40f)
+                close()
+            }
+        }.build()
+
+        return _AlignCenterVertical!!
+    }
+
+@Suppress("ObjectPropertyName")
+private var _AlignCenterVertical: ImageVector? = null

@@ -2,6 +2,8 @@ plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.androidKotlinMultiplatformLibrary)
     alias(libs.plugins.androidLint)
+    id("maven-publish")
+    id("com.vanniktech.maven.publish") version "0.36.0"
 }
 
 kotlin {
@@ -101,4 +103,40 @@ kotlin {
         }
     }
 
+}
+mavenPublishing{
+    coordinates(
+        groupId = "io.github.dev778g-me",
+        artifactId = "phosphoricon-compose",
+        version = "1.0.2"
+    )
+
+    // configure p
+    pom {
+        name.set("phosphoricon-compose")
+        description.set("phosphor icon library for compose multiplatform")
+        inceptionYear.set("2026")
+        url.set("https://github.com/dev778g-me/PhosphorIcon-compose")
+
+        developers {
+            developer {
+                id.set("dev778g-me")
+                name.set("dev")
+                email.set("sanji778g@gmail.com")
+            }
+        }
+
+        licenses {
+            license {
+                name.set("MIT")
+                url.set("https://opensource.org/licenses/MIT")
+            }
+        }
+
+        scm {
+            url.set("https://github.com/dev778g-me/PhosphorIcon-compose")
+        }
+    }
+    publishToMavenCentral(automaticRelease = false)
+    signAllPublications()
 }

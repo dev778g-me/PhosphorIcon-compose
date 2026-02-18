@@ -1,4 +1,4 @@
-import com.vanniktech.maven.publish.portal.SonatypeCentralPortal
+
 import org.jetbrains.compose.desktop.application.dsl.TargetFormat
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
@@ -8,7 +8,7 @@ plugins {
     alias(libs.plugins.composeMultiplatform)
     alias(libs.plugins.composeCompiler)
     alias(libs.plugins.composeHotReload)
-    id("com.vanniktech.maven.publish") version "0.36.0"
+
 }
 
 kotlin {
@@ -16,7 +16,7 @@ kotlin {
         compilerOptions {
             jvmTarget.set(JvmTarget.JVM_11)
         }
-        publishLibraryVariants()
+
     }
     
     listOf(
@@ -37,7 +37,6 @@ kotlin {
             implementation(libs.androidx.activity.compose)
         }
         commonMain.dependencies {
-            implementation(project(":library"))
             implementation(libs.compose.runtime)
             implementation(libs.compose.foundation)
             implementation(libs.compose.material3)
@@ -84,34 +83,7 @@ android {
     }
 }
 
-mavenPublishing{
-    coordinates(
-        groupId = "",
-        artifactId = "phophoricon-compose",
-        version = "1.0.0"
-    )
 
-    // configure p
-    pom {
-        name.set("phosphoricon-compose")
-        description.set("phosphor icon library for compose multiplatform")
-        inceptionYear.set("2026")
-        url.set("https://github.com/dev778g-me/PhosphorIcon-compose")
-
-        licenses {
-         license {
-             name.set("MIT")
-             url.set("https://opensource.org/licenses/MIT")
-         }
-        }
-
-        scm {
-            url.set("https://github.com/dev778g-me/PhosphorIcon-compose")
-        }
-    }
-    publishToMavenCentral(automaticRelease = false)
-    signAllPublications()
-}
 
 dependencies {
     debugImplementation(libs.compose.uiTooling)

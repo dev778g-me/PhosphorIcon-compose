@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.gradle.ExperimentalWasmDsl
+
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.androidKotlinMultiplatformLibrary)
@@ -27,6 +29,17 @@ kotlin {
     }
 
     jvm()
+
+    js {
+        browser()
+        binaries.executable()
+    }
+
+    @OptIn(ExperimentalWasmDsl::class)
+    wasmJs {
+        browser()
+        binaries.executable()
+    }
 
     // For iOS targets, this is also where you should
     // configure native binary output. For more information, see:
@@ -108,7 +121,7 @@ mavenPublishing{
     coordinates(
         groupId = "io.github.dev778g-me",
         artifactId = "phosphoricon-compose",
-        version = "1.0.2"
+        version = "1.0.3"
     )
 
     // configure p

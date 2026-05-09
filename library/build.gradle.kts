@@ -30,6 +30,16 @@ kotlin {
 
     jvm()
 
+    js {
+        browser()
+        binaries.executable()
+    }
+
+    @OptIn(ExperimentalWasmDsl::class)
+    wasmJs {
+        browser()
+        binaries.executable()
+    }
 
 
     // For iOS targets, this is also where you should
@@ -112,7 +122,7 @@ mavenPublishing{
     coordinates(
         groupId = "io.github.dev778g-me",
         artifactId = "phosphoricon-compose",
-        version = "1.0.3"
+        version = "1.0.4"
     )
 
     // configure p

@@ -124,14 +124,13 @@ kotlin {
     }
 
 }
-mavenPublishing{
+mavenPublishing {
     coordinates(
         groupId = "io.github.dev778g-me",
         artifactId = "phosphoricon-compose",
         version = "1.0.4"
     )
 
-    // configure p
     pom {
         name.set("phosphoricon-compose")
         description.set("phosphor icon library for compose multiplatform")
@@ -155,6 +154,25 @@ mavenPublishing{
 
         scm {
             url.set("https://github.com/dev778g-me/PhosphorIcon-compose")
+        }
+
+        withXml {
+            val dependenciesNode = asNode().appendNode("dependencies")
+            listOf(
+                "phosphor-core" to "1.0.4",
+                "phosphor-thin" to "1.0.4",
+                "phosphor-light" to "1.0.4",
+                "phosphor-regular" to "1.0.4",
+                "phosphor-bold" to "1.0.4",
+                "phosphor-filled" to "1.0.4",
+                "phosphor-duotone" to "1.0.4"
+            ).forEach { (artifact, version) ->
+                dependenciesNode.appendNode("dependency").apply {
+                    appendNode("groupId", "io.github.dev778g-me")
+                    appendNode("artifactId", "phosphoricons-$artifact")
+                    appendNode("version", version)
+                }
+            }
         }
     }
     publishToMavenCentral(automaticRelease = false)

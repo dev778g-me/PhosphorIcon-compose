@@ -44,11 +44,13 @@ kotlin {
     }
 }
 
+val publishVersion = libs.versions.phosphorVersion.get()
+
 mavenPublishing {
     coordinates(
         groupId = "io.github.dev778g-me",
         artifactId = "phosphoricons-duotone",
-        version = "1.0.4"
+        version = publishVersion
     )
 
     pom {
@@ -81,7 +83,7 @@ mavenPublishing {
             dependenciesNode.appendNode("dependency").apply {
                 appendNode("groupId", "io.github.dev778g-me")
                 appendNode("artifactId", "phosphoricons-core")
-                appendNode("version", "1.0.4")
+                appendNode("version", publishVersion)
             }
         }
     }

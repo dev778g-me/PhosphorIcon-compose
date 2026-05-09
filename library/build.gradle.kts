@@ -10,9 +10,6 @@ plugins {
 
 kotlin {
 
-    // Target declarations - add or remove as needed below. These define
-    // which platforms this KMP module supports.
-    // See: https://kotlinlang.org/docs/multiplatform-discover-project.html#targets
     androidLibrary {
         namespace = "com.dev.phosphorlibrary"
         compileSdk = 36
@@ -41,14 +38,6 @@ kotlin {
         binaries.executable()
     }
 
-
-    // For iOS targets, this is also where you should
-    // configure native binary output. For more information, see:
-    // https://kotlinlang.org/docs/multiplatform-build-native-binaries.html#build-xcframeworks
-
-    // A step-by-step guide on how to include this library in an XCode
-    // project can be found here:
-    // https://developer.android.com/kotlin/multiplatform/migrate
     val xcfName = "librayKit"
 
     iosX64 {
@@ -69,11 +58,6 @@ kotlin {
         }
     }
 
-    // Source set declarations.
-    // Declaring a target automatically creates a source set with the same name. By default, the
-    // Kotlin Gradle Plugin creates additional source sets that depend on each other, since it is
-    // common to share sources between related targets.
-    // See: https://kotlinlang.org/docs/multiplatform-hierarchy.html
     sourceSets {
         commonMain {
             dependencies {
@@ -98,9 +82,6 @@ kotlin {
 
         androidMain {
             dependencies {
-                // Add Android-specific dependencies here. Note that this source set depends on
-                // commonMain by default and will correctly pull the Android artifacts of any KMP
-                // dependencies declared in commonMain.
             }
         }
 
@@ -114,21 +95,19 @@ kotlin {
 
         iosMain {
             dependencies {
-                // Add iOS-specific dependencies here. This a source set created by Kotlin Gradle
-                // Plugin (KGP) that each specific iOS target (e.g., iosX64) depends on as
-                // part of KMP’s default source set hierarchy. Note that this source set depends
-                // on common by default and will correctly pull the iOS artifacts of any
-                // KMP dependencies declared in commonMain.
             }
         }
     }
 
 }
+
+val publishVersion = libs.versions.phosphorVersion.get()
+
 mavenPublishing {
     coordinates(
         groupId = "io.github.dev778g-me",
         artifactId = "phosphoricon-compose",
-        version = "1.0.4"
+        version = publishVersion
     )
 
     pom {
@@ -158,19 +137,11 @@ mavenPublishing {
 
         withXml {
             val dependenciesNode = asNode().appendNode("dependencies")
-            listOf(
-                "phosphor-core" to "1.0.4",
-                "phosphor-thin" to "1.0.4",
-                "phosphor-light" to "1.0.4",
-                "phosphor-regular" to "1.0.4",
-                "phosphor-bold" to "1.0.4",
-                "phosphor-filled" to "1.0.4",
-                "phosphor-duotone" to "1.0.4"
-            ).forEach { (artifact, version) ->
+            listOf("core", "thin", "light", "regular", "bold", "filled", "duotone").forEach { artifact ->
                 dependenciesNode.appendNode("dependency").apply {
                     appendNode("groupId", "io.github.dev778g-me")
                     appendNode("artifactId", "phosphoricons-$artifact")
-                    appendNode("version", version)
+                    appendNode("version", publishVersion)
                 }
             }
         }

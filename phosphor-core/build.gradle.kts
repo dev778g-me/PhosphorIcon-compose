@@ -42,11 +42,13 @@ kotlin {
     }
 }
 
+val publishVersion = libs.versions.phosphorVersion.get()
+
 mavenPublishing {
     coordinates(
         groupId = "io.github.dev778g-me",
         artifactId = "phosphoricons-core",
-        version = "1.0.4"
+        version = publishVersion
     )
 
     pom {

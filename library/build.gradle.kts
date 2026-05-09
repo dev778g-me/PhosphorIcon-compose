@@ -135,16 +135,6 @@ mavenPublishing {
             url.set("https://github.com/dev778g-me/PhosphorIcon-compose")
         }
 
-        withXml {
-            val dependenciesNode = asNode().appendNode("dependencies")
-            listOf("core", "thin", "light", "regular", "bold", "filled", "duotone").forEach { artifact ->
-                dependenciesNode.appendNode("dependency").apply {
-                    appendNode("groupId", "io.github.dev778g-me")
-                    appendNode("artifactId", "phosphoricons-$artifact")
-                    appendNode("version", publishVersion)
-                }
-            }
-        }
     }
     publishToMavenCentral(automaticRelease = false)
     signAllPublications()

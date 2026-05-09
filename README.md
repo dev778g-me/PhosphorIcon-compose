@@ -27,7 +27,7 @@ It exposes the icons through a simple and familiar API similar to Material Icons
 Add the dependency to your `build.gradle.kts`:
 
 ```kotlin
-implementation("io.github.dev778g-me:phosphoricon-compose:1.0.2")
+implementation("io.github.dev778g-me:phosphoricon-compose:1.0.4")
 ```
 
 Sync your project after adding the dependency.

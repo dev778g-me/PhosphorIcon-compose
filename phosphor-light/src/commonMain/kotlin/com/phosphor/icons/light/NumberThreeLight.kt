@@ -1,0 +1,41 @@
+package com.phosphor.icons.light
+
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.SolidColor
+import androidx.compose.ui.graphics.StrokeCap
+import androidx.compose.ui.graphics.StrokeJoin
+import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.graphics.vector.path
+import androidx.compose.ui.unit.dp
+import com.phosphor.icons.PhIcons
+
+val PhIcons.Light.NumberThreeLight: ImageVector
+    get() {
+        if (_NumberThreeLight != null) {
+            return _NumberThreeLight!!
+        }
+        _NumberThreeLight = ImageVector.Builder(
+            name = "Light.NumberThreeLight",
+            defaultWidth = 24.dp,
+            defaultHeight = 24.dp,
+            viewportWidth = 256f,
+            viewportHeight = 256f
+        ).apply {
+            path(
+                stroke = SolidColor(Color.Black),
+                strokeLineWidth = 12f,
+                strokeLineCap = StrokeCap.Round,
+                strokeLineJoin = StrokeJoin.Round
+            ) {
+                moveTo(88f, 48f)
+                horizontalLineToRelative(80f)
+                lineToRelative(-48f, 64f)
+                arcToRelative(48f, 48f, 0f, isMoreThanHalf = true, isPositiveArc = true, -32f, 83.78f)
+            }
+        }.build()
+
+        return _NumberThreeLight!!
+    }
+
+@Suppress("ObjectPropertyName")
+private var _NumberThreeLight: ImageVector? = null

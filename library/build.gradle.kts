@@ -80,7 +80,13 @@ kotlin {
                 implementation(libs.kotlin.stdlib)
                 api(libs.compose.ui)
                 api(libs.compose.foundation)
-                // Add KMP dependencies here
+                api(project(":phosphor-core"))
+                api(project(":phosphor-thin"))
+                api(project(":phosphor-light"))
+                api(project(":phosphor-regular"))
+                api(project(":phosphor-bold"))
+                api(project(":phosphor-filled"))
+                api(project(":phosphor-duotone"))
             }
         }
 
